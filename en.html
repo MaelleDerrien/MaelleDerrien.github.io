@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Maëlle Derrien, Ph.D.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --side:#33445A;          /* bleu ardoise foncé */
+    --side-2:#2A3646;        /* dégradé plus sombre */
+    --accent:#6E9BC5;        /* bleu ardoise clair */
+    --accent-soft:rgba(110,155,197,.16);
+    --ink:#22303B;
+    --muted:#6B7580;
+    --line:#E4E8EC;
+    --chip:#F1F4F7;
+    --side-tx:#E9EEF4;
+    --side-mut:#A7B6C7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Inter",system-ui,sans-serif;
+    color:var(--ink);
+    background:#DCE1E6;
+    line-height:1.5;
+    padding:28px 14px;
+  }
+  .cv{
+    max-width:900px;margin:0 auto;background:#fff;
+    display:grid;grid-template-columns:34% 66%;
+    box-shadow:0 18px 50px rgba(28,40,55,.20);
+    border-radius:4px;overflow:hidden;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .side{
+    background:linear-gradient(160deg,var(--side) 0%,var(--side-2) 100%);
+    color:var(--side-tx);
+    padding:34px 26px 40px;
+  }
+  .avatar{
+    width:92px;height:92px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:32px;letter-spacing:1px;
+    color:#fff;background:rgba(255,255,255,.10);
+    border:2px solid rgba(255,255,255,.28);
+    margin-bottom:20px;
+  }
+  .name{
+    font-family:"Space Grotesk",sans-serif;
+    font-weight:700;font-size:27px;line-height:1.12;
+    letter-spacing:.5px;color:#fff;text-transform:uppercase;
+  }
+  .role{color:var(--side-mut);font-size:13.5px;font-weight:500;margin-top:6px;letter-spacing:.2px}
+  .langsw{margin:14px 0 0;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  .langsw a{color:var(--side-mut);text-decoration:none;padding:3px 7px;border:1px solid rgba(255,255,255,.18);border-radius:3px}
+  .langsw a:hover{color:#fff;border-color:var(--accent)}
+  .langsw .cur{color:#fff;background:rgba(255,255,255,.12);border-color:transparent}
+  .spectrum{margin:18px 0 26px;display:block;width:100%;height:36px;opacity:.95}
+
+  .side-sec{margin-top:26px}
+  .side-h{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:11.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;
+    color:#fff;padding-bottom:8px;margin-bottom:12px;
+    border-bottom:1px solid rgba(255,255,255,.18);
+  }
+  .contact-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:11px;font-size:12.6px;color:var(--side-tx);word-break:break-word}
+  .contact-row svg{flex:0 0 auto;width:15px;height:15px;margin-top:2px;fill:var(--accent)}
+  .contact-row a{color:inherit;text-decoration:none}
+  .contact-row a:hover{color:#fff;text-decoration:underline}
+
+  .lang{margin-bottom:12px}
+  .lang-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12.8px}
+  .lang-name{font-weight:600;color:#fff}
+  .lang-lvl{color:var(--side-mut);font-size:11px}
+  .dots{margin-top:5px;letter-spacing:3px;color:var(--accent);font-size:9px}
+  .dots .off{color:rgba(255,255,255,.22)}
+
+  .skill-group{margin-bottom:15px}
+  .skill-label{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.4px;margin-bottom:7px;text-transform:uppercase}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{
+    font-size:11px;line-height:1;padding:6px 9px;border-radius:20px;
+    background:rgba(255,255,255,.08);color:var(--side-tx);
+    border:1px solid rgba(255,255,255,.10);white-space:nowrap;
+  }
+
+  /* ---------- MAIN ---------- */
+  .main{padding:36px 34px 40px}
+  .intro{font-size:13px;color:var(--muted);line-height:1.62;margin-bottom:8px}
+  .footnote{margin-top:24px;padding-top:10px;border-top:1px solid var(--line);font-size:9px;line-height:1.45;color:var(--muted)}
+  .highlights{margin:14px 0 2px;padding:12px 15px;background:var(--accent-soft);border-radius:8px}
+  .highlights h3{font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--side);margin-bottom:8px}
+  .highlights ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+  .highlights li{position:relative;padding-left:14px;font-size:12.2px;color:var(--ink);line-height:1.45}
+  .highlights li::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+  .block{margin-top:26px}
+  .block-h{
+    display:flex;align-items:center;gap:10px;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:16px;font-weight:600;letter-spacing:.3px;color:var(--side);
+    padding-bottom:9px;border-bottom:2px solid var(--side);margin-bottom:6px;
+  }
+  .block-h svg{width:18px;height:18px;fill:var(--accent)}
+
+  .timeline{position:relative;padding-left:22px;margin-top:16px}
+  .timeline::before{content:"";position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:var(--line)}
+  .entry{position:relative;margin-bottom:20px}
+  .entry::before{
+    content:"";position:absolute;left:-22px;top:5px;width:11px;height:11px;border-radius:50%;
+    background:#fff;border:2.5px solid var(--accent);
+  }
+  .entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .entry-role{font-size:14.5px;font-weight:700;color:var(--ink)}
+  .entry-date{font-size:11.5px;color:var(--muted);font-weight:500;white-space:nowrap}
+  .entry-org{font-size:12.6px;color:var(--accent);font-weight:600;margin:1px 0 8px}
+  .entry-summary{font-size:12.2px;color:var(--muted);font-style:italic;line-height:1.52;margin:0 0 9px}
+  .entry ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+  .entry li{position:relative;padding-left:14px;font-size:12.4px;color:#3c4854;line-height:1.5}
+  .entry li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+  .edu{margin-bottom:15px}
+  .edu-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .edu-deg{font-size:13.6px;font-weight:700;color:var(--ink)}
+  .edu-date{font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .edu-school{font-size:12.4px;color:var(--accent);font-weight:600;margin:1px 0 3px}
+  .edu-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:680px){
+    body{padding:12px 6px}
+    .cv{grid-template-columns:1fr}
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    @page{size:A4;margin:0}
+    body{background:#fff;padding:0}
+    .cv{max-width:none;box-shadow:none;border-radius:0;grid-template-columns:33% 67%}
+    .side,.main{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .entry,.edu{break-inside:avoid}
+    .block{break-inside:avoid}
+  }
+</style>
+<meta name="robots" content="noarchive">
+<meta name="description" content="Maëlle Derrien, Ph.D. — Chemistry of natural compounds and soil organic matter. Seven years of industrial R&amp;D, doctorate in soil science.">
+
+<!-- Open Graph (LinkedIn, Facebook) -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Maëlle Derrien, Ph.D. — CV">
+<meta property="og:description" content="Chemistry of natural compounds and soil organic matter. Seven years of industrial R&amp;D, doctorate in soil science.">
+<meta property="og:url" content="https://maellederrien.github.io/en.html">
+<meta property="og:image" content="https://maellederrien.github.io/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Carte de présentation de Maëlle Derrien avec un spectre de sol infrarouge">
+<meta property="og:locale" content="en_CA">
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maëlle Derrien, Ph.D. — CV">
+<meta name="twitter:description" content="Chemistry of natural compounds and soil organic matter.">
+<meta name="twitter:image" content="https://maellederrien.github.io/preview.png">
+<link rel="alternate" hreflang="en" href="https://maellederrien.github.io/en.html">
+<link rel="alternate" hreflang="fr" href="https://maellederrien.github.io/">
+</head>
+<body>
+<div class="cv">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="side">
+    <div class="avatar">MD</div>
+    <div class="name">Maëlle<br>Derrien</div>
+    <div class="role">Ph.D.&nbsp;·&nbsp;Dual doctoral background<br>7 years of applied R&amp;D in industry and research centres</div>
+    <div class="langsw"><a href="index.html">FR</a> <a class="cur" href="en.html">EN</a></div>
+
+    <!-- signature: spectre de sol MIR représentatif (bandes O–H, C=O, Si–O) -->
+    <svg class="spectrum" viewBox="0 0 260 40" aria-hidden="true">
+      <line x1="0" y1="26.0" x2="260" y2="26.0" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+      <polyline points="2.0,24.8 2.5,24.8 3.0,24.7 3.5,24.7 4.0,24.7 4.5,24.7 5.1,24.7 5.6,24.7 6.1,24.7 6.6,24.7 7.1,24.6 7.6,24.6 8.1,24.6 8.6,24.6 9.1,24.6 9.6,24.5 10.1,24.5 10.7,24.5 11.2,24.4 11.7,24.4 12.2,24.4 12.7,24.3 13.2,24.3 13.7,24.2 14.2,24.2 14.7,24.2 15.2,24.1 15.7,24.0 16.3,24.0 16.8,23.9 17.3,23.8 17.8,23.8 18.3,23.7 18.8,23.6 19.3,23.5 19.8,23.5 20.3,23.4 20.8,23.3 21.3,23.2 21.9,23.1 22.4,22.9 22.9,22.8 23.4,22.7 23.9,22.6 24.4,22.5 24.9,22.3 25.4,22.1 25.9,21.9 26.4,21.6 26.9,21.1 27.5,20.4 28.0,19.5 28.5,18.3 29.0,17.0 29.5,15.9 30.0,15.0 30.5,14.7 31.0,14.9 31.5,15.6 32.0,16.5 32.5,17.4 33.1,18.2 33.6,18.7 34.1,18.9 34.6,19.0 35.1,19.0 35.6,18.9 36.1,18.7 36.6,18.6 37.1,18.4 37.6,18.3 38.1,18.1 38.6,18.0 39.2,17.8 39.7,17.7 40.2,17.6 40.7,17.5 41.2,17.4 41.7,17.3 42.2,17.2 42.7,17.1 43.2,17.0 43.7,16.9 44.2,16.9 44.8,16.8 45.3,16.8 45.8,16.8 46.3,16.7 46.8,16.7 47.3,16.7 47.8,16.7 48.3,16.8 48.8,16.8 49.3,16.8 49.8,16.9 50.4,17.0 50.9,17.0 51.4,17.1 51.9,17.2 52.4,17.3 52.9,17.4 53.4,17.5 53.9,17.6 54.4,17.8 54.9,17.9 55.4,18.0 56.0,18.2 56.5,18.3 57.0,18.5 57.5,18.6 58.0,18.8 58.5,19.0 59.0,19.1 59.5,19.3 60.0,19.5 60.5,19.6 61.0,19.8 61.6,20.0 62.1,20.1 62.6,20.3 63.1,20.5 63.6,20.6 64.1,20.8 64.6,21.0 65.1,21.1 65.6,21.3 66.1,21.4 66.6,21.6 67.2,21.7 67.7,21.9 68.2,22.0 68.7,22.1 69.2,22.3 69.7,22.4 70.2,22.5 70.7,22.6 71.2,22.7 71.7,22.8 72.2,23.0 72.8,23.0 73.3,23.1 73.8,23.2 74.3,23.3 74.8,23.4 75.3,23.5 75.8,23.5 76.3,23.6 76.8,23.7 77.3,23.7 77.8,23.7 78.4,23.6 78.9,23.5 79.4,23.2 79.9,22.8 80.4,22.3 80.9,21.7 81.4,21.0 81.9,20.5 82.4,20.2 82.9,20.3 83.4,20.6 84.0,21.1 84.5,21.6 85.0,22.1 85.5,22.4 86.0,22.4 86.5,22.1 87.0,21.8 87.5,21.6 88.0,21.6 88.5,21.8 89.0,22.3 89.6,22.9 90.1,23.4 90.6,23.8 91.1,24.1 91.6,24.3 92.1,24.4 92.6,24.4 93.1,24.4 93.6,24.4 94.1,24.4 94.6,24.4 95.2,24.4 95.7,24.4 96.2,24.4 96.7,24.4 97.2,24.4 97.7,24.4 98.2,24.4 98.7,24.4 99.2,24.4 99.7,24.4 100.2,24.4 100.7,24.4 101.3,24.4 101.8,24.4 102.3,24.4 102.8,24.4 103.3,24.4 103.8,24.4 104.3,24.4 104.8,24.4 105.3,24.4 105.8,24.4 106.3,24.4 106.9,24.4 107.4,24.4 107.9,24.4 108.4,24.4 108.9,24.4 109.4,24.4 109.9,24.4 110.4,24.4 110.9,24.4 111.4,24.4 111.9,24.4 112.5,24.4 113.0,24.4 113.5,24.4 114.0,24.4 114.5,24.4 115.0,24.4 115.5,24.4 116.0,24.4 116.5,24.4 117.0,24.4 117.5,24.4 118.1,24.4 118.6,24.4 119.1,24.4 119.6,24.4 120.1,24.4 120.6,24.4 121.1,24.4 121.6,24.3 122.1,24.3 122.6,24.3 123.1,24.3 123.7,24.3 124.2,24.3 124.7,24.3 125.2,24.3 125.7,24.3 126.2,24.3 126.7,24.3 127.2,24.3 127.7,24.3 128.2,24.3 128.7,24.3 129.3,24.3 129.8,24.3 130.3,24.3 130.8,24.3 131.3,24.3 131.8,24.3 132.3,24.3 132.8,24.3 133.3,24.3 133.8,24.3 134.3,24.3 134.9,24.3 135.4,24.3 135.9,24.3 136.4,24.3 136.9,24.3 137.4,24.3 137.9,24.3 138.4,24.3 138.9,24.2 139.4,24.2 139.9,24.2 140.5,24.2 141.0,24.1 141.5,24.1 142.0,24.1 142.5,24.0 143.0,23.9 143.5,23.8 144.0,23.8 144.5,23.7 145.0,23.5 145.5,23.4 146.1,23.3 146.6,23.2 147.1,23.0 147.6,22.9 148.1,22.7 148.6,22.6 149.1,22.5 149.6,22.4 150.1,22.3 150.6,22.3 151.1,22.2 151.7,22.2 152.2,22.2 152.7,22.2 153.2,22.3 153.7,22.3 154.2,22.3 154.7,22.3 155.2,22.3 155.7,22.3 156.2,22.3 156.7,22.2 157.3,22.1 157.8,22.0 158.3,21.9 158.8,21.8 159.3,21.7 159.8,21.7 160.3,21.6 160.8,21.6 161.3,21.7 161.8,21.7 162.3,21.9 162.8,22.0 163.4,22.2 163.9,22.4 164.4,22.7 164.9,22.9 165.4,23.1 165.9,23.2 166.4,23.3 166.9,23.3 167.4,23.3 167.9,23.0 168.4,22.7 169.0,22.1 169.5,21.3 170.0,20.3 170.5,19.3 171.0,18.3 171.5,17.3 172.0,16.6 172.5,16.1 173.0,15.9 173.5,15.9 174.0,16.1 174.6,16.2 175.1,16.3 175.6,16.3 176.1,16.1 176.6,15.8 177.1,15.4 177.6,15.0 178.1,14.5 178.6,14.2 179.1,13.9 179.6,13.8 180.2,13.9 180.7,14.0 181.2,14.4 181.7,14.8 182.2,15.4 182.7,16.0 183.2,16.7 183.7,17.4 184.2,18.1 184.7,18.8 185.2,19.4 185.8,20.0 186.3,20.4 186.8,20.8 187.3,21.0 187.8,21.1 188.3,21.1 188.8,21.1 189.3,20.9 189.8,20.7 190.3,20.4 190.8,20.0 191.4,19.7 191.9,19.3 192.4,19.0 192.9,18.7 193.4,18.4 193.9,18.2 194.4,18.1 194.9,18.1 195.4,18.2 195.9,18.4 196.4,18.6 197.0,18.9 197.5,19.3 198.0,19.7 198.5,20.1 199.0,20.6 199.5,21.0 200.0,21.4 200.5,21.8 201.0,22.2 201.5,22.5 202.0,22.8 202.6,23.0 203.1,23.2 203.6,23.3 204.1,23.4 204.6,23.4 205.1,23.3 205.6,23.2 206.1,23.0 206.6,22.7 207.1,22.3 207.6,21.8 208.2,21.2 208.7,20.4 209.2,19.4 209.7,18.4 210.2,17.2 210.7,15.9 211.2,14.5 211.7,13.2 212.2,11.8 212.7,10.6 213.2,9.5 213.8,8.5 214.3,7.7 214.8,7.1 215.3,6.7 215.8,6.4 216.3,6.2 216.8,6.2 217.3,6.2 217.8,6.1 218.3,6.1 218.8,6.0 219.4,5.8 219.9,5.6 220.4,5.3 220.9,5.1 221.4,4.8 221.9,4.5 222.4,4.2 222.9,4.1 223.4,4.0 223.9,4.0 224.4,4.2 224.9,4.4 225.5,4.8 226.0,5.3 226.5,5.9 227.0,6.7 227.5,7.5 228.0,8.4 228.5,9.3 229.0,10.3 229.5,11.3 230.0,12.3 230.5,13.3 231.1,14.3 231.6,15.3 232.1,16.2 232.6,17.1 233.1,17.9 233.6,18.7 234.1,19.3 234.6,20.0 235.1,20.5 235.6,21.0 236.1,21.3 236.7,21.5 237.2,21.5 237.7,21.3 238.2,20.9 238.7,20.3 239.2,19.4 239.7,18.3 240.2,17.1 240.7,16.1 241.2,15.3 241.7,15.0 242.3,15.2 242.8,15.9 243.3,17.1 243.8,18.6 244.3,20.0 244.8,21.2 245.3,22.0 245.8,22.4 246.3,22.5 246.8,22.2 247.3,21.8 247.9,21.2 248.4,20.7 248.9,20.4 249.4,20.3 249.9,20.5 250.4,20.9 250.9,21.5 251.4,22.1 251.9,22.6 252.4,23.1 252.9,23.4 253.5,23.6 254.0,23.7 254.5,23.8 255.0,23.8 255.5,23.8 256.0,23.8"
+        fill="none" stroke="#6E9BC5" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <g fill="rgba(233,238,244,.55)" font-family="Inter,sans-serif" font-size="5.3" text-anchor="middle" letter-spacing="0.2">
+        <text x="47" y="37">O–H</text>
+        <text x="172" y="37">C=O</text>
+        <text x="224" y="37">Si–O</text>
+      </g>
+    </svg>
+
+    <section class="side-sec">
+      <div class="side-h">Contact</div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13A2.5 2.5 0 0 1 19.5 21h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.2L19.8 6H4.2Zm15.8 1.6-6.9 4.6a2 2 0 0 1-2.2 0L4 7.6v10.9h16V7.6Z"/></svg>
+        <a href="#" id="mail">email: click here</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+        <span>Saint-Jean-sur-Richelieu, Quebec</span>
+      </div>
+      <div class="contact-row" style="margin-top:7px">
+        <svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.07.78 2.16v3.2c0 .3.21.66.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+        <a href="https://github.com/MaelleDerrien">github.com/MaelleDerrien</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9V9Z"/></svg>
+        <a href="https://www.linkedin.com/in/ma%C3%ABlle-derrien-phd-4747aa107/">linkedin.com/in/maëlle-derrien-phd</a>
+      </div>
+    </section>
+
+    <section class="side-sec">
+      <div class="side-h">Languages</div>
+      <div class="lang">
+        <div class="lang-top"><span class="lang-name">French</span><span class="lang-lvl">native</span></div>
+        <div class="dots">●●●●●</div>
+      </div>
+      <div class="lang">
+        <div class="lang-top"><span class="lang-name">English</span><span class="lang-lvl">fluent</span></div>
+        <div class="dots">●●●●<span class="off">●</span></div>
+      </div>
+    </section>
+
+    <section class="side-sec">
+      <div class="side-h">Skills</div>
+
+      <div class="skill-group">
+        <div class="skill-label">Scientific Leadership &amp; Innovation</div>
+        <div class="chips">
+          <span class="chip">R&amp;D strategy</span><span class="chip">project management</span>
+          <span class="chip">team management</span><span class="chip">business development</span>
+          <span class="chip">strategic partnerships</span><span class="chip">research funding</span>
+          <span class="chip">technology transfer</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">Analytical Development</div>
+        <div class="chips">
+          <span class="chip">FTIR (DRIFTS)</span><span class="chip">LC-MS/MS</span>
+          <span class="chip">HPLC / UPLC</span><span class="chip">py-GC/MS</span>
+          <span class="chip">fluorescence</span><span class="chip">method development and validation</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">Data Science</div>
+        <div class="chips">
+          <span class="chip">chemometrics</span><span class="chip">PLS</span><span class="chip">Cubist</span>
+          <span class="chip">random forests</span><span class="chip">mixed-effects models</span><span class="chip">R</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="margin-top:16px">
+        <div class="skill-label">Soil Chemistry &amp; Science</div>
+        <div class="chips">
+          <span class="chip">soil chemistry</span><span class="chip">soil organic matter</span>
+          <span class="chip">soil organic carbon</span><span class="chip">carbon sequestration</span>
+          <span class="chip">pedology</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">Extraction &amp; Purification of Natural Compounds</div>
+        <div class="chips">
+          <span class="chip">supercritical CO₂ extraction</span><span class="chip">flash chromatography</span>
+          <span class="chip">HSCCC</span><span class="chip">molecular distillation</span>
+          <span class="chip">recrystallization</span>
+        </div>
+      </div>
+    </section>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+    <div class="highlights">
+      <h3>Highlights</h3>
+      <ul>
+        <li>More than seven years of industrial R&amp;D in biotechnology, natural products and agri-environmental innovation.</li>
+        <li>Specialized in the extraction and purification of natural compounds.</li>
+        <li>Analytical method development and interpretation of instrumental data (HPLC/UPLC, LC-MS/MS, py-GC/MS), in support of technical teams.</li>
+        <li>Development of chemometric calibration pipelines (PLS, Cubist, random forests) and statistical modelling (mixed-effects models, R).</li>
+        <li>Led the acquisition and commissioning of major research infrastructure (Bruker INVENIO-S FTIR).</li>
+        <li>Organized and coordinated field logistics for a campaign spanning more than 50 partner farms across 6 regions of Quebec, within the national Living Labs network of Agriculture and Agri-Food Canada.</li>
+        <li>Experience in technology development, research funding, and industry-academia-government partnerships.</li>
+      </ul>
+    </div>
+
+    <!-- EXPÉRIENCES -->
+    <section class="block">
+      <div class="block-h">
+        <svg viewBox="0 0 24 24"><path d="M9 4a2 2 0 0 0-2 2v1H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3V6a2 2 0 0 0-2-2H9Zm0 2h6v1H9V6Z"/></svg>
+        Experience
+      </div>
+      <div class="timeline">
+
+        <article class="entry">
+          <div class="entry-head"><span class="entry-role">Doctoral Researcher</span><span class="entry-date">Since 2023</span></div>
+          <div class="entry-org">Université Laval / Living Labs Program (AAFC)</div>
+          <p class="entry-summary">Research conducted within the Living Labs network of Agriculture and Agri-Food Canada, a national agricultural innovation initiative bringing together farmers, scientists and sector partners. Objective: to characterize carbon dynamics in Quebec agricultural soils (0–1 m), at the surface and at depth, across labile and stable fractions, benchmarked against natural reference sites, in order to estimate their sequestration potential.</p>
+          <ul>
+            <li>Led the funding, procurement and commissioning of a Bruker INVENIO-S FTIR spectrometer (Canada Foundation for Innovation), coordinating vendors, institutional services and funding partners.</li>
+            <li>Built a provincial analytical infrastructure based on infrared spectroscopy (DRIFTS) and chemometrics (PLS, Cubist, random forests), designed for integration with Canadian and international spectral libraries.</li>
+            <li>Characterization of soil organic matter fractions and quantification of carbon stocks down to 1 m depth in Quebec agroecosystems.</li>
+            <li>Organized and coordinated field logistics for a sampling campaign covering more than 50 farms across 6 regions of Quebec, supervising five research assistants, in partnership with Agriculture and Agri-Food Canada.</li>
+            <li>Leveraged large pedological datasets through advanced statistical modelling (mixed-effects models, R) to support agri-environmental decision-making; first-author manuscript in preparation for Geoderma Regional.</li>
+            <li>Authored knowledge-transfer deliverables for the Living Labs network: farm-level reports presenting measured soil carbon stocks (0–1 m) for each field, and interactive mapping tools deployed online (available on GitHub, link above).</li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head"><span class="entry-role">Research Scientist, Chemistry</span><span class="entry-date">Jul. 2022 – May 2023</span></div>
+          <div class="entry-org">TransBIOTech</div>
+          <ul>
+            <li>Designed and transferred quantitative analytical methods for the determination of biomolecules in complex biological matrices (e.g. plasma), subsequently run by the technical teams.</li>
+            <li>Development, optimization and validation of quantitative methods by tandem mass spectrometry (Waters triple quadrupole, HPLC/UPLC) and HPLC-fluorescence: calibration, linearity, LOD/LOQ and analyte quantification.</li>
+            <li>Scientific support to innovative companies: scoping needs, developing analytical solutions, interpreting results and communicating recommendations.</li>
+            <li>Contributed to funding proposals and to the development of new applied-research partnerships.</li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head"><span class="entry-role">Extraction and Purification Researcher</span><span class="entry-date">Apr. 2019 – Jun. 2022</span></div>
+          <div class="entry-org">SiliCycle — Quebec</div>
+          <ul>
+            <li>Extraction and purification of cannabinoids (molecular distillation, flash chromatography, recrystallization) and of various plant biomasses.</li>
+            <li>Contributed to the development and industrial-scale transfer of purification and valorization processes for natural compounds.</li>
+            <li>Contributed to grant applications, patents and strategic documents supporting company growth.</li>
+            <li>Regulatory documentation and scientific marketing; project management and delivery tracking.</li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head"><span class="entry-role">R&amp;D and Innovation Manager</span><span class="entry-date">Mar. 2018 – Apr. 2019</span></div>
+          <div class="entry-org">Nutraceutech</div>
+          <ul>
+            <li>Managed the innovation portfolio and prioritized R&amp;D projects (probiotics, cannabinoids).</li>
+            <li>Coordinated cross-functional teams spanning research, regulatory affairs, operations and marketing.</li>
+            <li>Built strategic partnerships with clients, suppliers and academic collaborators across Canada and Europe.</li>
+            <li>Contributed to innovation strategy and to the launch of new value-added products.</li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head"><span class="entry-role">Research Scientist, Extraction and Purification</span><span class="entry-date">Jun. – Dec. 2017</span></div>
+          <div class="entry-org">CÉPROCQ</div>
+          <ul>
+            <li>Supercritical CO₂ extraction of various biomasses.</li>
+            <li>Conventional extraction (Soxhlet, reflux, hydrodistillation).</li>
+            <li>Purification of biomolecules (high-speed counter-current chromatography, HSCCC).</li>
+            <li>Intern supervision and scientific report writing.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FORMATIONS -->
+    <section class="block">
+      <div class="block-h">
+        <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V15h2V8L12 3ZM5 12.18V16c0 1.66 3.13 3 7 3s7-1.34 7-3v-3.82l-7 3.18-7-3.18Z"/></svg>
+        Education
+      </div>
+
+      <div class="edu">
+        <div class="edu-head"><span class="edu-deg">Ph.D. Candidate, Soil Science and Environment</span><span class="edu-date">Since Sep. 2023</span></div>
+        <div class="edu-school">Université Laval, Canada</div>
+        <div class="edu-desc">Soil organic matter and carbon dynamics in Quebec agricultural soils; carbon sequestration potential. (One manuscript under revision; oral presentation at the AQSSS 2026 conference.)</div>
+      </div>
+
+      <div class="edu">
+        <div class="edu-head"><span class="edu-deg">Ph.D. in Food Science and Technology</span><span class="edu-date">Jan. 2015 – Dec. 2017</span></div>
+        <div class="edu-school">Université Laval, Canada</div>
+        <div class="edu-desc">Biorefining of spinach by-products: comparison of green technologies for the extraction of bioactive phytochemicals.</div>
+      </div>
+
+      <div class="edu">
+        <div class="edu-head"><span class="edu-deg">M.Sc. in Food Science and Technology</span><span class="edu-date">Sep. 2013 – Dec. 2014</span></div>
+        <div class="edu-school">Université Laval, Canada</div>
+        <div class="edu-desc">Extraction of biomolecules from various biomasses for nutraceutical valorization.</div>
+      </div>
+
+      <div class="edu">
+        <div class="edu-head"><span class="edu-deg">PSIE — Entrepreneurship Training Program</span><span class="edu-date">Sep. – Dec. 2016</span></div>
+        <div class="edu-school">Université Laval, Canada</div>
+        <div class="edu-desc">Intellectual property, legal frameworks, business models, competitive positioning, digital marketing, financing.</div>
+      </div>
+
+      <div class="edu">
+        <div class="edu-head"><span class="edu-deg">B.Sc. in Biochemistry and Molecular Biology</span><span class="edu-date">Sep. 2009 – Jun. 2013</span></div>
+        <div class="edu-school">Université de Rennes 1, France</div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-h">
+        <svg viewBox="0 0 24 24"><path d="M12 2 9.2 8.6 2 9.3l5.5 4.8L5.8 21 12 17.3 18.2 21l-1.7-6.9L22 9.3l-7.2-.7L12 2Z"/></svg>
+        Scientific Leadership and Outreach
+      </div>
+      <div class="timeline" style="padding-left:0">
+        <article class="entry" style="margin-bottom:0">
+          <ul>
+            <li>Supervision of research staff and interns.</li>
+            <li>Sustained collaboration with Agriculture and Agri-Food Canada and agricultural sector partners.</li>
+            <li>Conference presentations (AQSSS 2026) and knowledge-transfer activities with end users.</li>
+            <li>Development of dissemination tools for research results (farm-level reports, interactive mapping).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-h">
+        <svg viewBox="0 0 24 24"><path d="M4 4a2 2 0 0 1 2-2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4Zm10 1v4h4l-4-4ZM7 12h10v1.6H7V12Zm0 4h10v1.6H7V16Z"/></svg>
+        Selected Publications
+      </div>
+      <div class="timeline" style="padding-left:0">
+        <article class="entry" style="margin-bottom:0">
+          <ul>
+            <li><strong>Derrien, M.</strong>, Badr, A., Gosselin, A., Desjardins, Y., Angers, P. (2017). Optimization of a green process for the extraction of lutein and chlorophyll from spinach by-products using response surface methodology (RSM). <em>LWT — Food Science and Technology</em>, 79, 170–177.</li>
+            <li><strong>Derrien, M.</strong>, Aghabararnejad, M., Gosselin, A., Desjardins, Y., Angers, P., Boumghar, Y. (2018). Optimization of supercritical carbon dioxide extraction of lutein and chlorophyll from spinach by-products using response surface methodology. <em>LWT</em>, 93, 79–87.</li>
+            <li><strong>Derrien, M.</strong>, Badr, A., Gosselin, A., Desjardins, Y., Angers, P. (2019). Optimization of a sustainable purification protocol for lutein and chlorophyll from spinach by-products by a saponification procedure using Box-Behnken design and desirability function. <em>Food and Bioproducts Processing</em>, 116, 54–62.</li>
+            <li><strong>Derrien, M.</strong>, Samson, M.-É., Gasser, M.-O. Farm-level heterogeneity drives soil organic matter trajectories in Quebec agricultural soils (2000–2023)&nbsp;: evidence from 43 farms across the province. Manuscript in preparation for <em>Geoderma Regional</em>.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+      <p class="footnote">Header illustration inspired by: Open Soil Spectral Library (soilspectroscopy.org); Parikh et al. (2014), Advances in Agronomy 126:1–148. Representative mid-infrared (MIR) soil spectrum (O–H and clay bands, C–H, carboxyl C=O, dominant mineral Si–O).</p>
+  </main>
+
+</div>
+<script>
+  (function(){
+    var u="mayelle.derrien", d="gmail.com", a=document.getElementById("mail");
+    if(a){ a.textContent=u+"@"+d; a.href="mailto:"+u+"@"+d; }
+  })();
+</script>
+</body>
+</html>
